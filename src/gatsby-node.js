@@ -30,9 +30,9 @@ exports.sourceNodes = async (
 
     if (typeof contentTypeItem === 'object') {
       contentType = contentTypeItem.name
-      params = contentTypeItem.params;
+      params = contentTypeItem.params
     } else {
-      contentType = contentTypeItem;
+      contentType = contentTypeItem
     }
     
     return fetchData({
@@ -87,7 +87,15 @@ exports.sourceNodes = async (
   })
 
   // Merge single and content types and retrieve create nodes
-  contentTypes.concat(singleTypes).forEach((contentType, i) => {
+  contentTypes.concat(singleTypes).forEach((contentTypeItem, i) => {
+    let contentType;
+
+    if (typeof contentTypeItem === 'object') {
+      contentType = contentTypeItem.name
+    } else {
+      contentType = contentTypeItem
+    }
+
     const items = entities[i]
     items.forEach((item, i) => {
       const node = Node(capitalize(contentType), item)
