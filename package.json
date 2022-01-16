@@ -29,7 +29,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.js'",
     "watch": "babel -w src --out-dir .",
-    "prepare": "npm run build"
+    "postinstall": "npm run build"
   },
   "keywords": [
     "gatsby",
