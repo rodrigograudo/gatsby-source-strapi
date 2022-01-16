@@ -42,9 +42,7 @@
     "gatsby-node-helpers": "^0.3.0",
     "gatsby-source-filesystem": "^1.5.39",
     "lodash": "^4.17.11",
-    "pluralize": "^7.0.0"
-  },
-  "devDependencies": {
+    "pluralize": "^7.0.0",
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
