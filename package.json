@@ -28,7 +28,8 @@
     "build": "babel src --out-dir .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.js'",
-    "watch": "babel -w src --out-dir ."
+    "watch": "babel -w src --out-dir .",
+    "prepare": "npm run build"
   },
   "keywords": [
     "gatsby",
@@ -54,6 +55,5 @@
   },
   "pre-commit": [
     "format"
-  ],
-  "install": "npm run build"
+  ]
 }
