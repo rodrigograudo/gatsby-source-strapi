@@ -25,15 +25,25 @@ exports.sourceNodes = async (
   fetchActivity.start()
 
   // Generate a list of promises based on the `contentTypes` option.
-  const contentTypePromises = contentTypes.map(contentType =>
-    fetchData({
+  const contentTypePromises = contentTypes.map(contentTypeItem => {
+    let params, contentType;
+
+    if (typeof contentTypeItem === 'object') {
+      contentType = contentTypeItem.name
+      params = contentTypeItem.params;
+    } else {
+      contentType = contentTypeItem;
+    }
+    
+    return fetchData({
       apiURL,
       contentType,
       jwtToken,
       queryLimit,
-      reporter
+      reporter,
+      params,
     })
-  )
+  })
 
   // Generate a list of promises based on the `singleTypes` option.
   const singleTypePromises = singleTypes.map(singleType =>

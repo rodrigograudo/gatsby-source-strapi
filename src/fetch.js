@@ -8,12 +8,14 @@ module.exports = async ({
   singleType,
   jwtToken,
   queryLimit,
-  reporter
+  reporter,
+  params,
 }) => {
   // Define API endpoint.
   let apiBase = singleType ? `${apiURL}/${singleType}` : `${apiURL}/${pluralize(contentType)}`
   
   const apiEndpoint = `${apiBase}?_limit=${queryLimit}`
+  const queryParams = { _limit: queryLimit, ...params }
 
   reporter.info(`Starting to fetch data from Strapi - ${apiEndpoint}`)
 
@@ -24,6 +26,8 @@ module.exports = async ({
       Authorization: `Bearer ${jwtToken}`,
     }
   }
+
+  fetchRequestConfig.params = queryParams;
 
   // Make API request.
   const documents = await axios(apiEndpoint, fetchRequestConfig)
