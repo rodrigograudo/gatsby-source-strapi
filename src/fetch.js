@@ -14,10 +14,14 @@ module.exports = async ({
   // Define API endpoint.
   let apiBase = singleType ? `${apiURL}/${singleType}` : `${apiURL}/${pluralize(contentType)}`
   
-  const apiEndpoint = `${apiBase}?_limit=${queryLimit}`
+  const apiEndpoint = `${apiBase}`
   const queryParams = { _limit: queryLimit, ...params }
 
-  reporter.info(`Starting to fetch data from Strapi - ${apiEndpoint}`)
+  reporter.info(
+    `Starting to fetch data from Strapi - ${apiBase} with params ${JSON.stringify(
+      queryParams
+    )}`
+  );
 
   // Set authorization token
   let fetchRequestConfig = {}
