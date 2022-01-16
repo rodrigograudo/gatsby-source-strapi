@@ -54,5 +54,6 @@
   },
   "pre-commit": [
     "format"
-  ]
+  ],
+  "install": "npm run build"
 }
